@@ -53,18 +53,19 @@ services:
     container_name: shard1_2
     restart: always
     ports:
-      - "27021:27021"
+      - "27021:27018"
     networks:
       - mynetwork
     volumes:
       - shard1_2-data:/data/db
     command:
       [
+        "--shardsvr",
         "--replSet",
         "shard1",
         "--bind_ip_all",
         "--port",
-        "27021"
+        "27018"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
@@ -76,18 +77,19 @@ services:
     container_name: shard1_3
     restart: always
     ports:
-      - "27022:27022"
+      - "27022:27018"
     networks:
       - mynetwork
     volumes:
       - shard1_3-data:/data/db
     command:
       [
+        "--shardsvr",
         "--replSet",
         "shard1",
         "--bind_ip_all",
         "--port",
-        "27022"
+        "27018"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
@@ -123,18 +125,19 @@ services:
     container_name: shard2_2
     restart: always
     ports:
-      - "27023:27023"
+      - "27023:27019"
     networks:
       - mynetwork
     volumes:
       - shard2_2-data:/data/db
     command:
       [
+        "--shardsvr",
         "--replSet",
         "shard2",
         "--bind_ip_all",
         "--port",
-        "27023"
+        "27019"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
@@ -146,18 +149,19 @@ services:
     container_name: shard2_3
     restart: always
     ports:
-      - "27024:27024"
+      - "27024:27019"
     networks:
       - mynetwork
     volumes:
       - shard2_3-data:/data/db
     command:
       [
+        "--shardsvr",
         "--replSet",
         "shard2",
         "--bind_ip_all",
         "--port",
-        "27024"
+        "27019"
       ]
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
