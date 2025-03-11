@@ -52,8 +52,6 @@ services:
     image: dh-mirror.gitverse.ru/mongo
     container_name: shard1_2
     restart: always
-    ports:
-      - "27018:27018"
     networks:
       - mynetwork
     volumes:
@@ -76,8 +74,6 @@ services:
     image: dh-mirror.gitverse.ru/mongo
     container_name: shard1_3
     restart: always
-    ports:
-      - "27018:27018"
     networks:
       - mynetwork
     volumes:
@@ -124,8 +120,6 @@ services:
     image: dh-mirror.gitverse.ru/mongo
     container_name: shard2_2
     restart: always
-    ports:
-      - "27019:27019"
     networks:
       - mynetwork
     volumes:
@@ -148,8 +142,6 @@ services:
     image: dh-mirror.gitverse.ru/mongo
     container_name: shard2_3
     restart: always
-    ports:
-      - "27019:27019"
     networks:
       - mynetwork
     volumes:
