@@ -2,17 +2,30 @@
 
 ## Как запустить
 
+Переходим в нужную директорию. Например, для sharding-repl-cache это:
+
+```shell
+cd sharding-repl-cache
+```
+
 Запускаем mongodb и приложение
 
 ```shell
 docker compose up -d
 ```
 
-Заполняем mongodb данными
+Инициализируем инстансы конфигурационного сервера и шардов
 
 ```shell
-./scripts/mongo-init.sh
+./scripts/init.sh
 ```
+
+Инициализируем роутер и наполняем БД данными
+
+```shell
+./scripts/router-init.sh
+```
+
 
 ## Как проверить
 
@@ -33,3 +46,23 @@ curl --silent http://ifconfig.me
 ## Доступные эндпоинты
 
 Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
+
+## Доступные скрипты
+
+Скрипт для проверки количества документов в shard1
+
+```shell
+./scripts/shard1-collection-count.sh
+```
+
+Скрипт для проверки количества документов в shard2
+
+```shell
+./scripts/shard2-collection-count.sh
+```
+
+Скрипт для проверки суммарного количества документов в БД
+
+```shell
+./scripts/router-collection-count.sh
+```
